@@ -1,0 +1,1230 @@
+
+
+
+
+
+
+
+
+
+<!-- only hyml or the finl portfolio -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shubham Gupta | Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ===== Navigation Styles ===== */
+    :root {
+      --nav-primary-bg: #000000;
+      --nav-text-primary: #ffffff;
+      --nav-accent: #00ffc8;
+      --nav-transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .light {
+      --nav-primary-bg: #ffffff;
+      --nav-text-primary: #000000;
+    }
+
+    .nav-main-header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 20px 0;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+      background: rgba(0, 0, 0, 0.5);
+      transition: var(--nav-transition);
+    }
+
+    .light .nav-main-header {
+      background: rgba(255, 255, 255, 0.7);
+    }
+
+    .nav-main-header.scrolled {
+      padding: 15px 0;
+      box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .nav-brand {
+      font-size: 1.5rem;
+      font-weight: 700;
+      background: linear-gradient(to right, var(--nav-text-primary), #222527);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-menu a {
+      position: relative;
+      font-weight: 500;
+      color: var(--nav-text-primary);
+    }
+
+    .nav-menu a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: var(--nav-accent);
+      transition: var(--nav-transition);
+    }
+
+    .nav-menu a:hover::after {
+      width: 100%;
+    }
+
+    .nav-theme-toggle {
+      background: none;
+      border: none;
+      color: var(--nav-text-primary);
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: var(--nav-transition);
+    }
+
+    .nav-theme-toggle:hover {
+      transform: rotate(30deg);
+      color: var(--nav-accent);
+    }
+
+    .nav-mobile-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--nav-text-primary);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+
+
+
+
+
+
+/* .skills-hero {
+      text-align: center;
+      margin-bottom: 3rem;
+    } */
+/* 
+    .skills-hero h1 {
+      background: linear-gradient(to right, var(--accent-color), #00a8ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      display: inline-block;
+    } */
+
+    /* .skills-categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    } */
+/* 
+    .skill-category {
+      background: var(--card-dark);
+      border-radius: 12px;
+      padding: 2rem;
+      border: 1px solid var(--border-dark);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    } */
+
+    /* .skill-category:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    } */
+
+    /* .light-mode .skill-category {
+      background: var(--card-light);
+      border: 1px solid var(--border-light);
+    } */
+
+    /* .skill-category h2 {
+      color: var(--accent-color);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    } */
+
+    /* .skill-category h2 i {
+      font-size: 1.8rem;
+    } */
+
+    /* .skills-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 1rem;
+    } */
+
+    .skill-item {
+      /* padding: 0.8rem 1rem; */
+      /* background: var(--nav-primary-bg); */
+      border-radius: 6px;
+      text-align: center;
+      
+      /* font-weight: 500; */
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .skill-item:hover {
+      background: var(--dark-text);
+      color: var(--bg-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 3, 5, 0.2);
+    }
+
+    .light-mode .skill-item {
+      background: rgba(11, 210, 167, 0.42);
+    }
+    /* .dark-mode .skill-item {
+      background: rgba(0, 255, 200, 0.1);
+    } */
+
+    .skill-level {
+      height: 4px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 2px;
+      margin-top: 0.5rem;
+      overflow: hidden;
+    }
+
+    .light-mode .skill-level {
+      background: rgba(0, 0, 0, 0.1);
+    }
+
+    .skill-level-bar {
+      height: 100%;
+      background: var(--accent-color);
+      border-radius: 2px;
+    }
+
+    .expert { width: 90%; }
+    .advanced { width: 75%; }
+    .intermediate { width: 60%; }
+    .beginner { width: 40%; }
+    .noob {width:25%;}
+
+    .skills-description {
+      max-width: 800px;
+      margin: 0 auto 3rem;
+      text-align: center;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+      .nav-menu {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background: rgba(0, 0, 0, 0.9);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        transition: var(--nav-transition);
+      }
+      
+      .light .nav-menu {
+        background: rgba(255, 255, 255, 0.95);
+      }
+      
+      .nav-menu.active {
+        left: 0;
+      }
+      
+      .nav-mobile-btn {
+        display: block;
+      }
+    }
+
+    /* Your existing CSS styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #000000, #1a1a1a);
+      color: white;
+      transition: background 0.3s, color 0.3s;
+      padding-top: 80px; 
+      /* Added to account for fixed header */
+    }
+    
+
+  </style>
+</head>
+<body>
+  <div class="preloader">Loading...</div>
+
+  <!-- New Navigation Bar -->
+  <header class="nav-main-header" id="navMainHeader">
+    <div class="nav-wrapper">
+      <a href="#" class="nav-brand">Shubham</a>
+      
+      <nav class="nav-menu" id="navMenu">
+        
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <button class="nav-theme-toggle" id="navThemeToggle">🌙</button>
+      </nav>
+      
+      <button class="nav-mobile-btn" id="navMobileBtn">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Your existing content (slightly modified to work with new nav) -->
+  <!-- <header class="hero" id="home">
+    <h1>Shubham Gupta</h1>
+    <p>Web Developer</p>
+  </header> -->
+
+  <section id="about">
+    <h1 class="heading">About Me</h1>
+    <div class="about">
+      <img src="Picsart_25-03-01_22-39-04-877.jpg" alt="Shubham Gupta Profile Picture">
+      <div class="about-text">
+        <p>Hello! I'm <strong>Shubham Gupta</strong>, a passionate <strong>Web Developer</strong> who loves building clean and responsive websites using <strong>HTML, CSS, and JavaScript</strong>. I enjoy transforming ideas into beautiful web experiences.</p>
+        <ul style="margin-top: 15px; line-height: 1.8; list-style: none;">
+          <li>💻 Builds multiple projects of web development</li>
+          <li>🎯 Focused on responsive design & accessibility</li>
+          <li>🚀 Constant learner of modern web trends</li>
+        </ul>
+        <a href="Shubham_Gupta_UIUX_Resume_(1)[1].docx" class="btn-download" target="_blank">Download Resume</a>
+      </div>
+    </div>
+  </section>
+  
+
+  <section id="skills">
+    <h1 class="heading">My Skills</h1>
+    <div class="skills">
+      <h2>Languages</h2>
+      <div class="skill-list">
+        <span class="skill-item">HTML5
+
+            <div class="skill-level">
+              <div class="skill-level-bar expert"></div>
+            </div>
+
+
+        </span>
+        <span class="skill-item">CSS3
+          <div class="skill-level">
+              <div class="skill-level-bar expert"></div>
+            </div>
+        </span>
+        
+        <span class="skill-item">JavaScript
+          <div class="skill-level">
+              <div class="skill-level-bar advanced"></div>
+            </div>
+        </span>
+        <span class="skill-item">JAVA
+          <div class="skill-level">
+              <div class="skill-level-bar intermediate"></div>
+            </div>
+        </span>
+        <span class="skill-item">C/C++
+          <div class="skill-level">
+              <div class="skill-level-bar beginner"></div>
+            </div>
+        </span>
+
+        <span class="skill-item">Python
+          <div class="skill-level">
+              <div class="skill-level-bar intermediate"></div>
+            </div>
+        </span>
+        <span class="skill-item">MySql
+          <div class="skill-level">
+              <div class="skill-level-bar intermediate"></div>
+            </div>
+        </span>
+       
+      </div>
+    </div>
+    <div class="skills">
+      <h2>Tools</h2>
+      <div class="skill-list">
+        <span class="skill-item">Vs Code
+          <div class="skill-level">
+              <div class="skill-level-bar expert"></div>
+            </div>
+        </span>
+        <span class="skill-item">GitHub
+          <div class="skill-level">
+              <div class="skill-level-bar intermediate"></div>
+            </div>
+        </span>
+        <span class="skill-item">Netlify
+          <div class="skill-level">
+              <div class="skill-level-bar expert"></div>
+            </div>
+        </span>
+        <span class="skill-item">Figma
+          <div class="skill-level">
+              <div class="skill-level-bar beginner"></div>
+            </div>
+        </span>
+        <span class="skill-item">Git
+          <div class="skill-level">
+              <div class="skill-level-bar expert"></div>
+            </div>
+        </span>
+        <span class="skill-item">Wordpress
+          <div class="skill-level">
+              <div class="skill-level-bar beginner"></div>
+            </div>
+        </span>
+        <span class="skill-item">Chrome DevTools
+          <div class="skill-level">
+              <div class="skill-level-bar intermediate"></div>
+            </div>
+        </span>        
+      </div>
+    </div>
+    <div class="skills">
+      <h2>Others</h2>
+      <div class="skill-list">
+        <span class="skill-item">UI/UX Awareness
+          <div class="skill-level">
+              <div class="skill-level-bar beginner"></div>
+            </div>
+        </span>
+        <span class="skill-item">Seo 
+          <div class="skill-level">
+              <div class="skill-level-bar beginner"></div>
+            </div>
+        </span>
+        <span class="skill-item">Responsive Design
+          <div class="skill-level">
+              <div class="skill-level-bar intermediate"></div>
+            </div>
+        </span>
+        <span class="skill-item">Figma/Sketch Basics
+          <div class="skill-level">
+              <div class="skill-level-bar beginner"></div>
+            </div>
+        </span>
+        <span class="skill-item">Debugging & Problem Solving:
+          <div class="skill-level">
+              <div class="skill-level-bar beginner"></div>
+            </div>
+        </span>
+        <span class="skill-item">Responsive Design
+          <div class="skill-level">
+              <div class="skill-level-bar expert"></div>
+            </div>
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- <section class="projects" id="projects">
+    <h2 class="heading">Projects</h2>
+    <div class="project-list">
+      <div class="project-card">
+        <img src="piece.jpg" alt="Demo Project">
+        <h3>Ai Image Generator</h3>
+        <p>A short description about the project goes here. This project is built using HTML, CSS and JS.</p>
+        <a href="https://shubh-image-generate.netlify.app/">View Project</a>
+      </div>
+      <div class="project-card">
+        <img src="Screenshot 2025-06-15 154435.png" alt="Demo Project">
+        <h3>Project Two</h3>
+        <p>This is another awesome project that demonstrates my frontend skills.</p>
+        <a href="https://vdemy-clone.netlify.app/">View Project</a>
+      </div>
+      <div class="project-card">
+        <img src="imges3.png" alt="Demo Project">
+        <h3>Graphic designer portfolio</h3>
+        <p>This is another awesome project that demonstrates my frontend skills.</p>
+        <a href="https://shubh-portolio.netlify.app/">View Project</a>
+      </div>
+      <div class="project-card">
+        <img src="Screenshot 2024-05-10 113110.png" alt="Demo Project">
+        <h3>A simple to-do list</h3>
+        <p>This is another awesome project that demonstrates my frontend skills.</p>
+        <a href="https://shubh-to-do.netlify.app/">View Project</a>
+      </div>
+      <div class="project-card">
+        <img src="Screenshot 2024-09-13 110525.png" alt="Demo Project">
+        <h3>Marketing Agency </h3>
+        <p>This is another  project that demonstrates a landing page for a marketing agency.</p>
+        <a href="https://shubh-agency.netlify.app/">View Project</a>
+      </div>
+    </div>
+    <div class="view-all-project">
+      <a href="project.html">view all</a>
+    </div>
+  </section> -->
+<section class="projects" id="projects">
+  <h2 class="heading">Projects</h2>
+  <div class="project-list" id="projectList"></div>
+  <!-- <div class="view-all-project">
+    <a href="project.html">View All</a>
+  </div> -->
+</section>
+
+
+
+<template id="project-card-template">
+  <div class="project-card">
+    <img src="" alt="">
+    <h3></h3>
+    <p></p>
+    <a href="" target="_blank" rel="noopener noreferrer">View Project</a>
+  </div>
+</template>
+
+
+
+  <section class="contact" id="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="shubhamgupta95854@gmail.com">shubhamgupta95854@gmail.com</a></p>
+    <p>GitHub: <a href="https://github.com/shubham21225">github.com/shubham2122</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/shubham-gupta-dev/">linkedin.com/shubham-gupta-dev</a></p>
+  </section>
+
+  <footer id="footer">
+    <nav class="footer-nav">
+      <a href="#about">About</a> |
+      <a href="#skills">Skills</a> |
+      <a href="#projects">Projects</a> |
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="social-icons">
+      <a href="https://github.com/shubham21225"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/shubham-gupta-dev/"><i class="fab fa-linkedin"></i></a>
+      
+    </div>
+    <p>&copy; 2025 Shubham Gupta. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Navigation functionality
+    const navHeader = document.getElementById("navMainHeader");
+    const navMobileBtn = document.getElementById("navMobileBtn");
+    const navMenu = document.getElementById("navMenu");
+    const navThemeToggle = document.getElementById("navThemeToggle");
+
+    // Header scroll effect
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 50) {
+        navHeader.classList.add("scrolled");
+      } else {
+        navHeader.classList.remove("scrolled");
+      }
+    });
+
+    // Mobile menu toggle
+    navMobileBtn.addEventListener("click", () => {
+      navMenu.classList.toggle("active");
+      navMobileBtn.innerHTML = navMenu.classList.contains("active") 
+        ? '<i class="fas fa-times"></i>' 
+        : '<i class="fas fa-bars"></i>';
+    });
+
+    // Close mobile menu when clicking a link
+    document.querySelectorAll(".nav-menu a").forEach(link => {
+      link.addEventListener("click", () => {
+        navMenu.classList.remove("active");
+        navMobileBtn.innerHTML = '<i class="fas fa-bars"></i>';
+      });
+    });
+
+    // Theme toggle (integrated with your existing theme system)
+    navThemeToggle.addEventListener("click", () => {
+      document.body.classList.toggle("light");
+      navThemeToggle.classList.add("animate");
+      setTimeout(() => navThemeToggle.classList.remove("animate"), 600);
+      navThemeToggle.textContent = document.body.classList.contains("light") ? "☀️" : "🌙";
+      
+      // Save preference to localStorage
+      localStorage.setItem("theme", document.body.classList.contains("light") ? "light" : "dark");
+    });
+
+    // Check for saved theme preference
+    if (localStorage.getItem("theme") === "light") {
+      document.body.classList.add("light");
+      navThemeToggle.textContent = "☀️";
+    }
+
+    // Your existing preloader and other scripts
+    window.addEventListener("load", () => {
+      document.querySelector(".preloader").style.display = "none";
+    });
+
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
+        
+
+
+
+<!-- style for the inal portfolio -->
+ <!-- <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #000000, #1a1a1a);
+      color: white;
+      transition: background 0.3s, color 0.3s;
+      padding: 20px;
+    }
+
+    a {
+      color: #61dafb;
+      text-decoration: none;
+    }
+
+    h1, h2 {
+      margin-bottom: 10px;
+    }
+
+    section {
+      margin: 40px 0;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(to right, #0f0f0f, #1a1a1a);
+      border-radius: 20px;
+      position: relative;
+    }
+
+    .theme-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      outline: none;
+      font-size: 24px;
+      transition: transform 0.4s ease;
+    }
+
+    .theme-toggle.animate {
+      transform: rotate(360deg);
+    }
+
+    .about {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 20px;
+      justify-content: center;
+
+    }
+
+
+    .btn-download {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    background: #333;
+    color: white;
+    border: 1px solid #777;
+    transition: background 0.3s;
+  }
+  .btn-download:hover {
+    background: #555;
+  }
+  body.light .btn-download {
+    background: #ddd;
+    color: #000;
+    border: 1px solid #aaa;
+  }
+  body.light .btn-download:hover {
+    background: #ccc;
+  }
+
+    .about img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid white;
+    }
+
+    .about-text {
+      flex: 1;
+      min-width: 240px;
+      max-width: 600px;
+    }
+
+    .project-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .project-card {
+      background: #111;
+      border-radius: 15px;
+      padding: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    }
+
+    .project-card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    .project-card h3 {
+      margin: 10px 0 5px;
+    }
+
+    .contact p {
+      margin-bottom: 8px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 14px;
+      color: #ccc;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .footer-nav a {
+      margin: 0 10px;
+      font-size: 14px;
+    }
+
+    .social-icons {
+      margin: 15px 0;
+    }
+
+    .social-icons a {
+      color: #ccc;
+      font-size: 18px;
+      margin: 0 8px;
+      transition: color 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      color: #fff;
+    }
+
+    .preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: black;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      z-index: 9999;
+    }
+
+    body.light {
+      background: linear-gradient(135deg, #f5f5f5, #e0e0e0);
+      color: #111;
+    }
+
+    body.light .hero {
+      background: linear-gradient(to right, #fff, #eee);
+    }
+
+    body.light .project-card {
+      background: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .skills {
+      margin: 60px 0;
+    }
+
+    .skills h2 {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .skill-item {
+      background: #222;
+      padding: 15px 25px;
+      border-radius: 12px;
+      font-size: 16px;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .skill-item:hover {
+      background: #444;
+      transform: scale(1.05);
+    }
+
+    body.light .skill-item {
+      background: #ddd;
+    }
+
+    body.light .skill-item:hover {
+      background: #ccc;
+    }
+
+
+    @media (width>= 998px ){
+      .about {
+        padding: 5rem 10rem;
+    }
+
+      .about img {
+      width: 400px;
+      height: 400px;
+      margin: 5rem;
+    }
+
+    }
+
+    @media screen and (max-width: 768px) {
+      .hero {
+        padding: 40px 15px;
+      }
+
+
+      .about {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .about img {
+        margin-bottom: 15px;
+      }
+    }
+  </style> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- gsap nimation - work when only -->
+<!-- 
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shubham Gupta | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+    body {
+      background: linear-gradient(to right, #000000, #1a1a1a);
+      color: white;
+      line-height: 1.6;
+      transition: background 0.5s ease, color 0.5s ease;
+    }
+    .light-theme {
+      background: linear-gradient(to right, #ffffff, #f0f0f0);
+      color: #000;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background: #111;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header h1 {
+      font-size: 24px;
+      font-weight: 700;
+    }
+    .theme-toggle {
+      cursor: pointer;
+      background: #333;
+      border: none;
+      padding: 10px;
+      border-radius: 30px;
+      color: white;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .theme-toggle:hover {
+      background: #00ffc8;
+      color: #000;
+      transform: rotate(20deg);
+    }
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+      opacity: 0;
+    }
+    h2 {
+      font-size: 32px;
+      margin-bottom: 30px;
+      text-align: center;
+      position: relative;
+    }
+    h2::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      margin: 10px auto 0;
+      background: linear-gradient(to right, #00ffc8, #ffffff);
+      border-radius: 2px;
+    }
+    .about {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .about img {
+      width: 150px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+    }
+    .skills-category {
+      margin-bottom: 40px;
+    }
+    .skills-category h3 {
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .skill {
+      background: #222;
+      padding: 10px 20px;
+      border-radius: 20px;
+      transition: background 0.3s;
+    }
+    .skill:hover {
+      background: #00ffc8;
+      color: #000;
+    }
+    .projects {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .project-card {
+      background: #1a1a1a;
+      border-radius: 16px;
+      padding: 20px;
+      width: 280px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      transition: transform 0.3s;
+    }
+    .project-card:hover {
+      transform: scale(1.05);
+    }
+    #showMoreBtn {
+      display: block;
+      margin: 30px auto 0;
+      padding: 10px 20px;
+      background: #00ffc8;
+      color: #000;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    #showMoreBtn:hover {
+      background: #00e6b8;
+    }
+    .contact-form {
+      max-width: 600px;
+      margin: auto;
+      background: #1a1a1a;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+    .contact-form label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      border: none;
+      background: #2a2a2a;
+      color: white;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: 2px solid #00ffc8;
+    }
+    .contact-form button {
+      background: #00ffc8;
+      color: #000;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .contact-form button:hover {
+      background: #00e6b8;
+    }
+    .interactive-box {
+      text-align: center;
+      margin: 40px 0;
+    }
+    .interactive-box button {
+      padding: 10px 20px;
+      font-size: 18px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      background: #00ffc8;
+      color: #000;
+      transition: transform 0.3s ease;
+    }
+    .interactive-box button:hover {
+      transform: scale(1.1) rotate(5deg);
+    }
+    .reaction {
+      margin-top: 20px;
+      font-size: 20px;
+      color: #00ffc8;
+    }
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: #111;
+      font-size: 14px;
+      color: #aaa;
+    }
+    footer a {
+      color: #00ffc8;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    @media (max-width: 600px) {
+      .project-card {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Shubham Gupta</h1>
+    <button class="theme-toggle">🌙</button>
+  </header>
+
+  <section class="about">
+    <img src="https://via.placeholder.com/150" alt="Profile Picture">
+    <p>I am a web developer skilled in HTML, CSS, and JavaScript. Passionate about building modern and responsive websites.</p>
+  </section>
+
+  <section class="interactive-box">
+    <h2>Let's Interact</h2>
+    <button onclick="showReaction()">Click Me!</button>
+    <div class="reaction" id="reaction"></div>
+  </section>
+
+  <section id="skills"> ... </section>
+  <section id="projects"> ... </section>
+  <section id="contact"> ... </section>
+
+  <footer>
+    © 2025 Shubham Gupta. All rights reserved.<br>
+    <a href="#">GitHub</a>|
+    <a href="#">LinkedIn</a>|
+    <a href="#">Twitter</a>
+  </footer>
+
+  <script>
+    const toggleBtn = document.querySelector(".theme-toggle");
+    toggleBtn.addEventListener("click", () => {
+      document.body.classList.toggle("light-theme");
+      toggleBtn.textContent = document.body.classList.contains("light-theme") ? "☀️" : "🌙";
+    });
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.utils.toArray("section").forEach(section => {
+      gsap.to(section, {
+        opacity: 1,
+        duration: 1,
+        y: 0,
+        scrollTrigger: {
+          trigger: section,
+          start: "top 80%",
+          toggleActions: "play none none none"
+        }
+      });
+    });
+
+    function showReaction() {
+      const reaction = document.getElementById("reaction");
+      reaction.textContent = "😊 Thanks for interacting!";
+      gsap.fromTo(reaction, { scale: 0 }, { scale: 1, duration: 0.5, ease: "bounce" });
+    }
+  </script>
+</body>
+</html>  -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
